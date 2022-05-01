@@ -10,6 +10,6 @@ public interface CryptocurrencyService {
 
     String getLastCryptocurrency(String lastName, String firstName);
 
-    Double rateComparsion(Cryptocurrency oldCryptocurrency, Double newRate);
+    Double rateComprising(Cryptocurrency oldCryptocurrency, Double newRate);
 
 }

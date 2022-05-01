@@ -1,7 +1,7 @@
 package ru.yastrebov.beatcoin.model.enums;
 
-public enum Currency {
-    BTC,
+public enum CurrencyName {
+    BITCOIN,
     ETH,
     BNB,
     DOGE,

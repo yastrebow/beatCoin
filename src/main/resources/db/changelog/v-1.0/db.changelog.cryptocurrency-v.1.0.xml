@@ -6,7 +6,21 @@
                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
 
-    <changeSet id="2" author="andrey_ya">
+    <changeSet id="v1.0.01_add_cryptocurrency_sequence" author="andrey_ya">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="cryptocurrency_id_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="cryptocurrency_id_seq" incrementBy="1" minValue="1"/>
+    </changeSet>
+
+    <changeSet id="v1.0.01_add_cryptocurrency_table" author="andrey_ya">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="cryptocurrency"/>
+            </not>
+        </preConditions>
         <createTable tableName="cryptocurrency">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
@@ -26,24 +40,5 @@
 
         </createTable>
     </changeSet>
-
-    <changeSet  id="addAutoIncrement-to-column-id" author="andrey_ya">
-        <addAutoIncrement
-                columnDataType="bigint"
-                columnName="id"
-                incrementBy="1"
-                startWith="100"
-                tableName="cryptocurrency"/>
-    </changeSet>
-    <changeSet  author="andrey_ya"  id="insert-example">
-        <insert  tableName="cryptocurrency">
-            <column  name="id"  value="1"/>
-            <column  name="currency_short_name"  value="BTC"/>
-            <column  name="current_rate"  value="39000"/>
-            <column  name="snapshot"  value="2022-02-19 09:00:00"/>
-            <column  name="rate_change"  value="0"/>
-        </insert>
-    </changeSet>
-
 </databaseChangeLog>
 

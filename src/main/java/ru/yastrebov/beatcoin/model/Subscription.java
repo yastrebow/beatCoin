@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.yastrebov.beatcoin.model.enums.Currency;
+import ru.yastrebov.beatcoin.model.enums.CurrencyName;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,7 +36,7 @@ public class Subscription {
 
     @Column(name = "currency_short_name", nullable = false, length = 100)
     @Enumerated(EnumType.STRING)
-    private Currency currencyShortName;
+    private CurrencyName currencyShortName;
 
     @Column(name = "max_rate_change", nullable = false)
     private Double maxRateChange;

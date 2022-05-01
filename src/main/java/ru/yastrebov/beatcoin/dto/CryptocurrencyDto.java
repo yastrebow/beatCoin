@@ -1,9 +1,10 @@
-package ru.yastrebov.beatcoin.model.dto;
+package ru.yastrebov.beatcoin.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.yastrebov.beatcoin.dto.currency.Bitcoin;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -11,8 +12,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CryptocurrencyDto {
 
-    private String symbol;
+    private Bitcoin bitcoin;
 
-    private Double current_price;
-    
 }
